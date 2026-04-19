@@ -1,0 +1,21 @@
+# Claude memory and config
+.claude/
+
+# Resume PDF
+*.pdf
+
+# Study guide and markdown notes
+PORTFOLIO_STUDY_GUIDE.md
+*.md
+
+# Node modules (in case)
+node_modules/
+
+# Next.js build output
+portfolio/.next/
+portfolio/out/
+portfolio/build/
+
+# Misc
+.DS_Store
+.env*
