@@ -1,7 +1,8 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { GraduationCap, Trophy, BookOpen, MapPin } from "lucide-react";
+import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { GraduationCap, Trophy, BookOpen, MapPin, ChevronDown } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
 import { education } from "@/lib/data";
 
@@ -9,6 +10,60 @@ const fadeUp = {
   hidden: { opacity: 0, y: 24 },
   show: { opacity: 1, y: 0, transition: { duration: 0.55 } },
 };
+
+function AwardsList() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
+
+  return (
+    <div className="space-y-2">
+      {education.awards.map((award, i) => {
+        const isOpen = openIndex === i;
+        return (
+          <div key={i} className="rounded-xl border border-border overflow-hidden">
+            <button
+              onClick={() => setOpenIndex(isOpen ? null : i)}
+              className="w-full flex items-start justify-between gap-3 p-4 hover:bg-accent transition-colors text-left"
+            >
+              <div className="flex-1 min-w-0">
+                <p className="text-sm font-medium text-foreground leading-snug">{award.name}</p>
+                {award.note && (
+                  <p className="text-xs text-muted-foreground mt-0.5">{award.note}</p>
+                )}
+              </div>
+              <div className="flex items-center gap-2 shrink-0">
+                <span className="text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
+                  {award.value}
+                </span>
+                <ChevronDown
+                  size={14}
+                  className={`text-muted-foreground transition-transform duration-200 ${isOpen ? "rotate-180" : ""}`}
+                />
+              </div>
+            </button>
+
+            <AnimatePresence initial={false}>
+              {isOpen && (
+                <motion.div
+                  initial={{ height: 0, opacity: 0 }}
+                  animate={{ height: "auto", opacity: 1 }}
+                  exit={{ height: 0, opacity: 0 }}
+                  transition={{ duration: 0.2 }}
+                  className="overflow-hidden"
+                >
+                  <div className="px-4 pb-4 border-t border-border pt-3 space-y-1.5 text-xs text-muted-foreground">
+                    <p><span className="text-foreground font-medium">Issued by:</span> {award.issuer}</p>
+                    <p><span className="text-foreground font-medium">Date:</span> {award.date}</p>
+                    <p className="leading-relaxed pt-1">{award.description}</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
 
 export default function Education() {
   return (
@@ -94,26 +149,7 @@ export default function Education() {
               <h3 className="font-semibold text-foreground">Scholarships & Awards</h3>
             </div>
 
-            <div className="space-y-4">
-              {education.awards.map((award, i) => (
-                <div
-                  key={i}
-                  className="flex items-start justify-between gap-3 pb-4 border-b border-border last:border-0 last:pb-0"
-                >
-                  <div className="flex-1">
-                    <p className="text-sm font-medium text-foreground leading-snug">
-                      {award.name}
-                    </p>
-                    {award.note && (
-                      <p className="text-xs text-muted-foreground mt-0.5">{award.note}</p>
-                    )}
-                  </div>
-                  <span className="shrink-0 text-sm font-bold text-primary bg-primary/10 px-3 py-1 rounded-full">
-                    {award.value}
-                  </span>
-                </div>
-              ))}
-            </div>
+            <AwardsList />
 
             {/* Total */}
             <div className="mt-5 pt-4 border-t border-border flex items-center justify-between">

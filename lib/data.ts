@@ -320,19 +320,31 @@ export const education = {
   ],
   awards: [
     {
-      name: "President's Scholars Award",
+      name: "University of Guelph Presidents' Scholar",
       value: "$42,500",
       note: "1 of 6 recipients university-wide",
+      issuer: "Dr. Charlotte Yates, University of Guelph",
+      date: "May 2023",
+      description:
+        "The University's most prestigious award, recognizing academic excellence, leadership, and community service. Has supported my Computer Engineering studies and enabled me to engage in impactful research and extracurricular activities.",
     },
     {
-      name: "Professional Engineers Foundation Scholarship",
+      name: "Ontario Professional Engineers Foundation Scholarship",
       value: "$1,500",
-      note: "",
+      note: "Leadership & professional development",
+      issuer: "Ontario Professional Engineers Foundation for Education",
+      date: "Jan 2025",
+      description:
+        "Awarded for exceptional leadership and contributions to professional development and extracurricular initiatives within the engineering community.",
     },
     {
-      name: "Kaled Salih Scholarship",
+      name: "Kaled Salih Memorial Scholarship",
       value: "$1,000",
-      note: "",
+      note: "First ever recipient",
+      issuer: "Established by classmates, friends, and family of Kaled Salih",
+      date: "Oct 2024",
+      description:
+        "First ever recipient of this scholarship, established in memory of Kaled Salih, a passionate mechanical engineering student and beloved member of the Guelph Engineering community. Recognizes high academic performance in ENGG*1100 and significant contributions to STEM at UoG and the broader community.",
     },
   ],
 };
