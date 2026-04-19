@@ -39,7 +39,8 @@ export default function About() {
             <p>
               I&apos;m <span className="text-foreground font-semibold">Aly Anany</span>, a
               Computer Engineering student at the{" "}
-              <span className="text-primary font-medium">University of Guelph</span> with a 3.8
+              <span className="text-primary font-medium">University of Guelph</span>{" "}
+              with a 3.8
               GPA. I&apos;ve had paid technical roles since my first year, mostly in AI, cloud
               infrastructure, and robotics.
             </p>
@@ -50,7 +51,7 @@ export default function About() {
             </p>
             <p>
               Outside of engineering, I play varsity squash for the{" "}
-              <span className="text-foreground font-medium">UoG Gryphons</span> and have coached
+              <span className="text-foreground font-medium">UoG Gryphons</span>{" "}and have coached
               squash at the YMCA. I&apos;ve also lifeguarded, volunteered at Hope House, and stayed
               involved on campus through the Muslim Student Association.
             </p>

@@ -136,7 +136,7 @@ function VarsityCard() {
             </div>
             <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
               <Users size={12} />
-              {varsityAthlete.sport} &bull; Varsity
+              {varsityAthlete.sport} &bull;{" "}Varsity
             </div>
           </div>
         </div>
